@@ -19,7 +19,7 @@ class Logger {
   }
 
   __log(level, message) {
-    const formattedMessage = formatMessage(level, message);
+    const formattedMessage = formatMessage(level, message instanceof Error ? message.message : message);
 
     if(process.env.APP_ENV === 'dev'){
       console.log(formattedMessage);
